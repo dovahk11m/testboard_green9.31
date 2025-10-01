@@ -1,0 +1,21 @@
+{{> layout/header}}
+
+<h3 class="mb-4">게시글 작성</h3>
+
+<form action="/boards/save" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">제목</label>
+        <input type="text" class="form-control" id="title" name="title" required maxlength="100">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">내용</label>
+        <textarea class="form-control" id="content" name="content" rows="10" required maxlength="1000"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary me-2">작성 완료</button>
+        <a href="/boards" class="btn btn-secondary">취소</a>
+    </div>
+</form>
+
+{{> layout/footer}}

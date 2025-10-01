@@ -1,0 +1,33 @@
+{{> layout/header}}
+
+<h3 class="mb-4">게시글 상세 보기</h3>
+
+{{#boards}}
+    <div class="card mb-4">
+        <div class="card-header bg-light">
+            <h4 class="mb-0">{{title}}</h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{content}}</p>
+        </div>
+        <div class="card-footer text-muted d-flex justify-content-between">
+            <div>작성자: {{author}} | 작성일: {{createdAt}}</div>
+
+            {{#isOwner}}
+                <div>
+                    <a href="/boards/update-form/{{id}}" class="btn btn-sm btn-warning me-2">수정</a>
+
+                    <form action="/posts/delete/{{id}}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger">삭제</button>
+                    </form>
+                </div>
+            {{/isOwner}}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <a href="/boards" class="btn btn-secondary">목록으로 돌아가기</a>
+    </div>
+{{/boards}}
+
+{{> layout/footer}}
